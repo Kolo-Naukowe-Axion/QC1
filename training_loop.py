@@ -1,11 +1,32 @@
 import numpy as np
 from sklearn.utils import shuffle
 
-#zakladam ze wyzej sa juz zdefiniowane te zmienne:
-#qnn, X_train, y_train, initial_weights (ewentulanie moge dodac generowanie losowych wag), AdamOptimizer
-#loss_history = [] do wykresow na podsumowanie 
+class AdamOptimizer:
+    def __init__(self, params_shape, lr=0.01, beta1=0.9, beta2=0.999, epsilon=1e-8):
+        self.lr = lr
+        self.beta1 = beta1
+        self.beta2 = beta2
+        self.epsilon = epsilon
+        self.m = np.zeros(params_shape)
+        self.v = np.zeros(params_shape)
+        self.t = 0
 
-#hiperparametry do ustawienia
+    def step(self, weights, grads):
+        self.t += 1
+        self.m = self.beta1 * self.m + (1 - self.beta1) * grads
+        self.v = self.beta2 * self.v + (1 - self.beta2) * (grads ** 2)
+        
+        m_hat = self.m / (1 - self.beta1 ** self.t)
+        v_hat = self.v / (1 - self.beta2 ** self.t)
+        
+        updated_weights = weights - self.lr * m_hat / (np.sqrt(v_hat) + self.epsilon)
+        return updated_weights
+
+# qnn obiekt z klasy od marysi
+# X_train, y_train dane do trenowania od kariny
+# initial_weights wagi startowe od marysi
+#loss_history = [] do wykresow na podsumowanie do iwo 
+
 EPOCHS = 20 
 BATCH_SIZE = 32
 LEARNING_RATE = 0.02
