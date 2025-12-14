@@ -1,7 +1,0 @@
-1.rafal ma sciagac parametry od kariny
-2.rafal ma sprawdzic czemu jest znaczek feta 
-
-poprawic to (marysia)
-if grads is None or np.all(grads == 0):
-             continue
-??
