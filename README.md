@@ -33,13 +33,17 @@ The following diagram represents the 4-qubit **Variational Ansatz** executed on 
 ---
 
 ## 🔬 Scientific Foundations & Papers
-This implementation of the **Quantum Banknote Classifier** and its hybrid architecture are based on the methodologies established in the following research papers:
 
-1. **Circuit-centric quantum classifiers** – *Mitarai et al. (2018)* [arXiv:1803.11173](https://arxiv.org/abs/1803.11173)
-   * **Contribution**: This paper provided the theoretical foundation for using parameterized quantum circuits as supervised learning models. We specifically utilized the **Parameter Shift Rule** described here for calculating gradients in our hybrid backpropagation.
+This project and its hybrid architecture are based on the methodologies established in the following research papers:
 
-2. **Supervised learning with quantum-enhanced feature spaces** – *Havlíček et al. (2019)* [Quantum 3, 141](https://quantum-journal.org/papers/q-2019-12-09-214/)
-   * **Contribution**: This work was instrumental in our choice of **Data Encoding**. It describes how classical data can be mapped into the quantum Hilbert space via feature maps, allowing the ODRA 5 system to identify non-linear boundaries in the banknote dataset.
+1. **Supervised learning with quantum-enhanced feature spaces** – *Havlíček et al. (2019)* [Quantum 3, 141](https://quantum-journal.org/papers/q-2019-12-09-214/)
+   * **Contribution**: This work provided the core framework for mapping classical data into the quantum Hilbert space via feature maps, which is the basis for our 4-feature encoding.
+
+2. **Quantum Machine Learning in Liquid** – *Havlíček et al. (2019)* [arXiv:1905.10876](https://arxiv.org/abs/1905.10876)
+   * **Contribution**: This paper further explores the practical implementation of quantum algorithms in noisy environments. It supported our research in optimizing the variational circuits for the superconducting qubits of the **ODRA 5** system.
+
+3. **Circuit-centric quantum classifiers** – *Mitarai et al. (2018)* [arXiv:1803.11173](https://arxiv.org/abs/1803.11173)
+   * **Contribution**: This paper established the concept of Variational Quantum Classifiers (VQC) and the **Parameter Shift Rule** used in our hybrid backpropagation.
 ---
 
 ## 🌊 Benchmarks & Performance
