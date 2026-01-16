@@ -19,6 +19,38 @@
 It is the first **superconducting quantum computer** in Poland (based on superconducting qubits). The system is intended for advanced research in **quantum informatics, telecommunications and cybersecurity**. Our project utilizes this state-of-the-art hardware to process data patterns critical for modern security systems.
 
 ---
+## 📊 Dataset: Banknote Authentication
+The dataset used in this project is sourced from the **UCI Machine Learning Repository**. It was specifically chosen to validate the classification capabilities of the **ODRA 5** quantum system.
+
+### Data Characteristics:
+* **Source**: UCI Banknote Authentication Dataset (ID: 267).
+* **Origin**: Data were extracted from images of genuine and forged banknote-like specimens using **Wavelet Transform**.
+* **Size**: 1372 instances with 4 continuous features and 1 binary target class.
+
+### Features (Input for Quantum Encoding):
+Each of the 4 features is mapped to a single qubit via **Angle Encoding** ($R_y$ gates):
+1. **Variance** of Wavelet Transformed image.
+2. **Skewness** of Wavelet Transformed image.
+3. **Kurtosis** of Wavelet Transformed image.
+4. **Entropy** of image.
+
+### Target:
+* **Class 0**: Authentic banknote.
+* **Class 1**: Counterfeit banknote.
+
+### Automatic Data Loading
+The project uses the ucimlrepo library to fetch the data directly from the repository. This ensures the dataset is always available without the need for manual downloads.
+```bash
+from ucimlrepo import fetch_ucirepo 
+
+# Fetch the banknote authentication dataset 
+banknote_authentication = fetch_ucirepo(id=267) 
+
+# Access features (X) and targets (y)
+X = banknote_authentication.data.features
+y = banknote_authentication.data.targets
+```
+---
 
 ## ⚛️ Project Overview: Banknote Authentication
 The primary objective of this project is the **automated classification of banknotes** to determine their authenticity (Authentic vs. Counterfeit).
@@ -75,7 +107,7 @@ The final performance on the test set shows a high true positive rate, accuratel
 pip install qiskit qiskit-machine-learning torch ucimlrepo scikit-learn matplotlib pandas numpy
 ```
 
-### 🚀 Usage
+## 🖥️ Usage
 The model initializes a quantum layer optimized via the classical **Adam Optimizer** in a hybrid environment. You can initialize the model using the following Python code:
 
 ```python
