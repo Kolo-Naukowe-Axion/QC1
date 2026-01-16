@@ -16,14 +16,14 @@
 ## 🏛️ About the ODRA 5 System
 **"Odra"** is the name of the first Polish quantum computer, specifically the **Odra 5** model, launched at **PWr** in 2025. 
 
-It is the first **superconducting quantum computer** in Poland (based on superconducting qubits). The system is intended for advanced research in **quantum informatics, telecommunications, and cybersecurity**. Our project utilizes this state-of-the-art hardware to process data patterns critical for modern security systems.
+It is the first **superconducting quantum computer** in Poland (based on superconducting qubits). The system is intended for advanced research in **quantum informatics, telecommunications and cybersecurity**. Our project utilizes this state-of-the-art hardware to process data patterns critical for modern security systems.
 
 ---
 
 ## ⚛️ Project Overview: Banknote Authentication
 The primary objective of this project is the **automated classification of banknotes** to determine their authenticity (Authentic vs. Counterfeit).
 
-By utilizing a **Hybrid Quantum-Classical Neural Network**, we process wavelet-transformed data including variance, skewness, kurtosis, and entropy of images. Mapping these classical features into the quantum Hilbert space on **Odra 5** allows the model to identify complex non-linear correlations essential for fraud detection.
+By utilizing a **Hybrid Quantum-Classical Neural Network**, we process wavelet-transformed data including variance, skewness, kurtosis and entropy of images. Mapping these classical features into the quantum Hilbert space on **Odra 5** allows the model to identify complex non-linear correlations essential for fraud detection.
 
 ### **Quantum Circuit Architecture**
 The following diagram represents the 4-qubit **Variational Ansatz** executed on the **ODRA 5** system. It features a layer of parameterized $R_y$ gates followed by a ring-like entanglement structure using controlled rotations.
