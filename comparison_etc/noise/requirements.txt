@@ -1,0 +1,9 @@
+numpy
+matplotlib
+torch
+tqdm
+qiskit
+qiskit-machine-learning
+scikit-learn
+ucimlrepo
+iqm-client[qiskit]
