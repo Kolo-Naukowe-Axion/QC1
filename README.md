@@ -7,7 +7,7 @@
 ## 👥 Student Research Group: **KN Axion**
 * **Affiliation**: Wrocław University of Science and Technology (**WUST**).
 * **Mission**: Exploring practical IT applications of Quantum Information Science.
-* **Project Role**: Implementation of a Variational Quantum Classifier (VQC) on the **IQM SPARK Odra 5** infrastructure for document authentication.
+* **Project Role**: Implementation of a Variational Quantum Classifier (VQC) on the **IQM SPARK Odra 5** infrastructure for banknote authentication.
 * **Members**: Iwo Wojtakajtis, Iwo Smura, Rafał Balicki, Karina Leśkiewicz, Maria Płatek, Michał Szczęsny.
 
 ---
