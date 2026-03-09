@@ -66,7 +66,7 @@ The dataset used in this project is sourced from the **UCI Machine Learning Repo
 
 * **Origin**: Data were extracted from images of genuine and forged banknote-like specimens using **Wavelet Transform**.
 
-* **Size**: 1372 instances with 4 continuous features and 1 binary target class.
+* **Size**: 1372 instances with 4 continuous features and binary target class.
 
 
 
