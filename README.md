@@ -4,7 +4,7 @@
 
 ---
 
-## 👥 Student Research Group: **KN Axion**
+## Student Research Group: **KN Axion**
 * **Affiliation**: Wrocław University of Science and Technology (**WUST**).
 * **Mission**: Exploring practical IT applications of Quantum Information Science.
 * **Project Role**: Implementation of a Variational Quantum Classifier (VQC) on the **IQM SPARK Odra 5** infrastructure for banknote authentication.
@@ -12,7 +12,7 @@
 
 ---
 
-## 📂 Repository Structure
+## Repository Structure
 * **`CrossValidation/`** – Scripts ensuring statistical stability and robustness of the results.
 * **`evaluation_and_comparison/`** – Detailed analysis including:
     * `ansatz_comparison`: Hardware vs. Simulator performance.
@@ -30,7 +30,7 @@
 
 ---
 
-## ⚛️ Project Overview
+## Project Overview
 The core objective of this project is to use the **UCI Banknote Authentication** dataset as a benchmark for comparing various machine learning paradigms. 
 
 In this project, we treat the dataset as a foundation for:
@@ -39,7 +39,7 @@ In this project, we treat the dataset as a foundation for:
 
 ---
 
-## 🔬 Scientific Foundations & Research Papers
+## Scientific Foundations & Research Papers
 
 This project and its hybrid architecture are based on methodologies established in the following research papers:
 
@@ -54,7 +54,7 @@ This project and its hybrid architecture are based on methodologies established 
 
 ---
 
-## 📊 Dataset: Banknote Authentication
+## Dataset: Banknote Authentication
 
 The dataset used in this project is sourced from the **UCI Machine Learning Repository**. It was specifically chosen to validate the classification capabilities of the **IQM SPARK ODRA 5** quantum system.
 
@@ -118,21 +118,21 @@ y = banknote_authentication.data.targets
 
 ---
 
-## 🌊 Benchmarks & Performance
+## Benchmarks & Performance
 Our research focuses on two primary analytical axes:
 1.  **Simulation vs Reality**: Evaluating the impact of real-world noise and decoherence on the **IQM Spark** processor compared to noise-free simulations.
 2.  **Circuit Depth Impact**: Investigating the trade-off between model expressivity (more layers) and the accumulation of physical gate errors on the actual QPU.
 
 ---
 
-## 🛠️ Technical Stack
+## Technical Stack
 * **Hardware**: ODRA 5 (Superconducting Qubits, IQM Spark)
 * **Software**: Qiskit, PyTorch, Scikit-learn, ucimlrepo
 * **Optimization**: Hybrid Quantum-Classical Training (Adam Optimizer via Parameter Shift Rule)
 
 ---
 
-## 🖥️ Usage & Workflow
+## Usage & Workflow
 1.  **Exploration**: Start with `eda.ipynb` to understand the input data distribution.
 2.  **Architecture**: Review `ansatz.ipynb` to see the circuit tested.
 3.  **Comparison**: Check the `evaluation_and_comparison` folder for scripts that contrast results from the simulator and the physical quantum computer.
