@@ -21,7 +21,7 @@ gdzie odchylenie standardowe rozkładu normalnego to $\sigma_{noise}=0.2 \cdot p
 
 
 * **Podział Danych (K-Fold)**: Zastosowano podział na 5 foldów przy ustalonym ziarnie losowości (random_state=42).
-* **Przeniesienie Skalowania** Proces skalowania cech za pomocą MinMaxScaler (zakres od -π/4 do π/4) został przeniesiony bezpośrednio do pętli walidacji krzyżowej. Skaler jest w każdej iteracji dopasowywany (fit) **wyłącznie na zbiorze treningowym danego foldu**, a dopiero potem aplikowany na zbiór testowy. Takie podejście gwarantuje, że model podczas uczenia nie ma żadnego dostępu do rozkładu danych testowych, co chroni przed data leakage.
+* **Przeniesienie Skalowania** Proces skalowania cech za pomocą MinMaxScaler (zakres od -π/4 do π/4) został przeniesiony bezpośrednio do pętli walidacji krzyżowej. Skaler jest w każdej iteracji dopasowywany wyłącznie na zbiorze treningowym danego foldu, a dopiero potem aplikowany na zbiór testowy. Takie podejście gwarantuje, że model podczas uczenia nie ma żadnego dostępu do rozkładu danych testowych, co chroni przed data leakage.
 * **Zarządzanie Wagami**: W każdym foldzie zapisywano wagi z ostatniej epoki. 
 
 | Hiperparametr | Wartość |
@@ -42,4 +42,4 @@ gdzie odchylenie standardowe rozkładu normalnego to $\sigma_{noise}=0.2 \cdot p
 ## 4. Główne Wnioski
 
 1. **Weryfikacja tezy o regularyzacyjnym wpływie szumu**: Naszym pierwotnym celem było sprawdzenie tezy przedstawionej w artykule, według której szum w modelach VQC może pełnić funkcję  regularyzacji i prowadzić do wzrostu dokładności modelu. Ostatecznie odnotowaliśmy jednak minimalny spadek  (o 0.44 punktu procentowego dla Accuracy i 0.84 dla F1). Wynika to z faktu, że nasz bazowy model był już optymalnie dopasowany do postawionego problemu, przez co  regularyzacja szumem nie miała przestrzeni do dalszej poprawy wyników.
-2. **Wysoka odporność (robustness) architektury**: Mimo braku wzrostu dokładności, tak znikomy spadek parametrów klasyfikacyjnych dowodzi wyjątkowej odporności architektury *Ring Topology* na błędy sprzętowe. Granica decyzyjna klasyfikatora nie ulega istotnej degradacji pod wpływem nałożonego szumu fenomenologicznego.
+2. **Wysoka odporność architektury**: Mimo braku wzrostu dokładności, tak znikomy spadek parametrów klasyfikacyjnych dowodzi wyjątkowej odporności architektury *Ring Topology* na błędy sprzętowe. Granica decyzyjna klasyfikatora nie ulega istotnej degradacji pod wpływem nałożonego szumu fenomenologicznego.
