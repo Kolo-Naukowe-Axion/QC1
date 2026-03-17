@@ -26,10 +26,10 @@ gdzie odchylenie standardowe rozkładu normalnego to $\sigma_{noise}=0.2 \cdot p
 
 | Hiperparametr | Wartość |
 | :--- | :--- |
-| Liczba epok (Epochs) | **30** |
-| Rozmiar wsadu (Batch Size) | **16** |
-| Współczynnik uczenia (Learning Rate) | **0.01** |
-| Głębokość ansatzu (Ansatz Depth) | **2** |
+| Epochs | **30** |
+| Batch Size | **16** |
+| Learning Rate | **0.01** |
+| Ansatz Depth | **2** |
 
 ## 3. Zestawienie Wyników
 
