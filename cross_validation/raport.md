@@ -36,12 +36,12 @@ gdzie odchylenie standardowe rozkładu normalnego to $\sigma_{noise}=0.2 \cdot p
 
 | Metryka | Model Idealny (Noiseless) | Model Zaszumiony (Noisy) | Różnica (Noisy vs Idealny) |
 | :--- | :--- | :--- | :--- |
-| **Mean Final Accuracy** | **0.8717** ± 0.0227 | **0.8673** ± 0.0280 | **-0.0044** (-0.44 p.p.) |
-| **Mean Final F1 Score** | **0.8452** ± 0.0332 | **0.8368** ± 0.0415 | **-0.0084** (-0.84 p.p.) |
-| **Mean Best Accuracy** | **0.8863** ± 0.0188 | **0.8819** ± 0.0266 | **-0.0044** (-0.44 p.p.) |
-| **Mean Best F1 Score** | **0.8663** ± 0.0235 | **0.8597** ± 0.0350 | **-0.0066** (-0.66 p.p.) |
+| **Mean Final Accuracy** | **0.8717** ± 0.0227 | **0.8673** ± 0.0280 | **-0.0044**  |
+| **Mean Final F1 Score** | **0.8452** ± 0.0332 | **0.8368** ± 0.0415 | **-0.0084**  |
+| **Mean Best Accuracy** | **0.8863** ± 0.0188 | **0.8819** ± 0.0266 | **-0.0044**  |
+| **Mean Best F1 Score** | **0.8663** ± 0.0235 | **0.8597** ± 0.0350 | **-0.0066**  |
 
 ## 4. Główne Wnioski
 
-1. **Weryfikacja tezy o regularyzacyjnym wpływie szumu**: Naszym pierwotnym celem było sprawdzenie tezy przedstawionej w artykule, według której szum w modelach VQC może pełnić funkcję  regularyzacji i prowadzić do wzrostu dokładności modelu. Ostatecznie odnotowaliśmy jednak minimalny spadek metryk (o zaledwie 0.44 punktu procentowego dla Best Accuracy). Wynika to z faktu, że nasz bazowy model był już optymalnie dopasowany do postawionego problemu, przez co  regularyzacja szumem nie miała przestrzeni do dalszej poprawy wyników.
+1. **Weryfikacja tezy o regularyzacyjnym wpływie szumu**: Naszym pierwotnym celem było sprawdzenie tezy przedstawionej w artykule, według której szum w modelach VQC może pełnić funkcję  regularyzacji i prowadzić do wzrostu dokładności modelu. Ostatecznie odnotowaliśmy jednak minimalny spadek  (o zaledwie 0.44 punktu procentowego dla Fianl Accuracy). Wynika to z faktu, że nasz bazowy model był już optymalnie dopasowany do postawionego problemu, przez co  regularyzacja szumem nie miała przestrzeni do dalszej poprawy wyników.
 2. **Wysoka odporność (robustness) architektury**: Mimo braku wzrostu dokładności, tak znikomy spadek parametrów klasyfikacyjnych dowodzi wyjątkowej odporności architektury *Ring Topology* na błędy sprzętowe. Granica decyzyjna klasyfikatora nie ulega istotnej degradacji pod wpływem nałożonego szumu fenomenologicznego.
