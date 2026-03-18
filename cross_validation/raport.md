@@ -53,5 +53,6 @@ Metryka | Model Idealny (Noiseless) | Model Zaszumiony (Noisy) | Zmiana Średnie
 
 ## 4. Główne Wnioski
 
-1. **Weryfikacja tezy o regularyzacyjnym wpływie szumu**: Naszym pierwotnym celem było sprawdzenie tezy przedstawionej w artykule, według której szum w modelach VQC może pełnić funkcję  regularyzacji i prowadzić do wzrostu dokładności modelu. Ostatecznie odnotowaliśmy jednak minimalny spadek  (o 0.44 punktu procentowego dla Accuracy i 0.84 dla F1). Wynika to z faktu, że nasz bazowy model był już optymalnie dopasowany do postawionego problemu, przez co  regularyzacja szumem nie miała przestrzeni do dalszej poprawy wyników.
+1. **Weryfikacja tezy o regularyzacyjnym wpływie szumu**: Na podstawię artukułu spodziwaliśmy się, że dla dobrze dopasowanych modeli nie nastąpi zanacząca regularyzacja prowadząca do wzrostu dokładności modelu. Ostatecznie odnotowaliśmy minimalny spadek (o 0.50% dla Accuracy i 0.93% dla F1). Wynika to z faktu, że nasz bazowy model był już optymalnie dopasowany do postawionego problemu, przez co  regularyzacja szumem nie miała przestrzeni do dalszej poprawy wyników. Wnioskli są zgodne z treśćią przedstawioną w artykule.
+
 2. **Wysoka odporność architektury**: Mimo braku wzrostu dokładności, tak znikomy spadek parametrów klasyfikacyjnych dowodzi wyjątkowej odporności architektury *Ring Topology* na błędy sprzętowe. Granica decyzyjna klasyfikatora nie ulega istotnej degradacji pod wpływem nałożonego szumu fenomenologicznego.
