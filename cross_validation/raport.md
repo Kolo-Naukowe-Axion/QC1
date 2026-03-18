@@ -34,10 +34,22 @@ gdzie odchylenie standardowe rozkładu normalnego to $\sigma_{noise}=0.2 \cdot p
 ## 3. Zestawienie Wyników
 
 
-| Metryka | Model Idealny (Noiseless) | Model Zaszumiony (Noisy) | Różnica (Noisy vs Idealny) |
+**Wyniki dla poszczególnych foldów:**
+
+| Fold | Accuracy (Ideal) | Accuracy (Noise) | Różnica Acc (Noise - Ideal) | F1 (Ideal) | F1 (Noise) | Różnica F1 (Noise - Ideal) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **1** | 0.8364 | 0.8109 | **-0.0255** | 0.7982 | 0.7570 | **-0.0412** |
+| **2** | 0.9055 | 0.9091 | **+0.0036** | 0.8898 | 0.8927 | **+0.0029** |
+| **3** | 0.8540 | 0.8577 | **+0.0037** | 0.8077 | 0.8134 | **+0.0057** |
+| **4** | 0.8832 | 0.8905 | **+0.0073** | 0.8571 | 0.8649 | **+0.0078** |
+| **5** | 0.8832 | 0.8723 | **-0.0109** | 0.8730 | 0.8583 | **-0.0147** |
+
+**Średnie metryki z walidacji krzyżowej (Mean ± Std)**
+
+| Metryka | Model Idealny (Noiseless) | Model Zaszumiony (Noisy) | Zmiana Średniej (Noise - Ideal) |
 | :--- | :--- | :--- | :--- |
-| **Mean Accuracy** | **0.8717** ± 0.0227 | **0.8673** ± 0.0280 | **-0.0044**  |
-| **Mean F1 Score** | **0.8452** ± 0.0332 | **0.8368** ± 0.0415 | **-0.0084**  |
+| **Mean Accuracy** | **0.8725** ± 0.0238 | **0.8681** ± 0.0336 | **-0.0044** |
+| **Mean F1 Score** | **0.8452** ± 0.0357 | **0.8373** ± 0.0494 | **-0.0079** |
 
 ## 4. Główne Wnioski
 
