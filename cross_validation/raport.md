@@ -119,6 +119,25 @@ Aby precyzyjnie ocenić wpływ szumu dla obu badanych architektur, obliczono ró
 | **Mean Accuracy** | **0.8280** ± 0.0277 | **0.8324** ± 0.0237 | **+0.0044** | **+0.53%** |
 | **Mean F1 Score** | **0.7904** ± 0.0336 | **0.7987** ± 0.0407 | **+0.0083** | **+1.05%** |
 
+### 3.2. Ansatz 1 o zmniejszonej pojemności (Depth = 1)
+
+**Tabela 3. Wyniki dla poszczególnych iteracji na finalnej epoce - Depth 1**
+
+| Fold | Acc (Ideal) | Acc (Noise) | Różnica Acc | % Zmiana Acc | ┃ | F1 (Ideal) | F1 (Noise) | Różnica F1 | % Zmiana F1 |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **1** | 0.8145 | 0.8073 | **-0.0072** | **-0.88%** | ┃ | 0.7773 | 0.7665 | **-0.0108** | **-1.39%** |
+| **2** | 0.8727 | 0.8727 | **0.0000** | **0.00%** | ┃ | 0.8458 | 0.8458 | **0.0000** | **0.00%** |
+| **3** | 0.8467 | 0.8321 | **-0.0146** | **-1.72%** | ┃ | 0.8142 | 0.7890 | **-0.0252** | **-3.10%** |
+| **4** | 0.8540 | 0.8650 | **+0.0110** | **+1.29%** | ┃ | 0.8246 | 0.8398 | **+0.0152** | **+1.84%** |
+| **5** | 0.8321 | 0.8212 | **-0.0109** | **-1.31%** | ┃ | 0.8160 | 0.8032 | **-0.0128** | **-1.57%** |
+
+**Tabela 4. Średnie metryki z walidacji krzyżowej - Depth 1 (Mean ± Std)**
+
+| Metryka | Model Idealny | Model Zaszumiony | Zmiana Średniej (Noise - Ideal) | % Zmiana Średniej |
+| :--- | :--- | :--- | :--- | :--- |
+| **Mean Accuracy** | **0.8440** ± 0.0223 | **0.8397** ± 0.0275 | **-0.0043** | **-0.51%** |
+| **Mean F1 Score** | **0.8156** ± 0.0247 | **0.8089** ± 0.0330 | **-0.0067** | **-0.82%** |
+
 ## 4. Główne Wnioski
 
 
