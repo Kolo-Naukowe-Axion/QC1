@@ -1,0 +1,162 @@
+Detailed ordered plan — understanding the KL / fidelity-distribution methodology
+(Companion to kl_expressibility_vs_haar.ipynb)
+
+================================================================================
+PHASE 1 — Know what quantity you are measuring
+================================================================================
+
+1. Define the random variable
+   For a fixed parameterized circuit U(theta), one "sample" is: draw theta_a,
+   theta_b independently from the same law (here U[0,2*pi] per parameter), form
+   states |psi(theta_a)>, |psi(theta_b)>, and compute
+   F = |<psi(theta_a)|psi(theta_b)>|^2 in [0,1].
+
+2. Interpret F
+   This is the squared overlap between two independent random states from the
+   same ansatz. Its distribution encodes how "spread out" and how Haar-like the
+   induced distribution over pure states is (under random theta).
+
+3. Separate "expressibility" from this notebook's metric
+   Literature often uses moments or other summaries; this notebook uses one
+   specific scalar: distance of the empirical histogram of F from a reference
+   Haar histogram (via KL). Write one sentence for yourself: "I am comparing
+   distributions of F, not optimizing training loss."
+
+================================================================================
+PHASE 2 — Haar reference (closed form)
+================================================================================
+
+4. Fix dimension
+   D = 2^n for n qubits (in the notebook: n=5 => D=32).
+
+5. Learn the Haar fidelity PDF
+   For Haar |psi>,|phi> in C^D, the fidelity F = |<psi|phi>|^2 has density on
+   [0,1]:
+   p_Haar(F) = (D-1)(1-F)^(D-2).
+   Sketch or plot it for your D: note mass toward smaller F when D is large.
+
+6. Why this PDF is the right reference
+   It is the unique distribution of squared overlap between two independent
+   Haar states (equivalently: fix one state, Haar-average the other). This is
+   the target shape for "maximally expressive" in this fidelity sense.
+
+================================================================================
+PHASE 3 — From continuous densities to finite bins
+================================================================================
+
+7. Choose a binning
+   Split [0,1] into B equal bins (in the notebook: B=150). Every sampled F
+   falls in one bin.
+
+8. Empirical distribution
+   Counts -> normalize to p_emp with sum_i p_emp,i = 1.
+
+9. Discretized Haar
+   Evaluate p_Haar(F) at bin centers (midpoints), multiply by bin width dF to
+   get mass per bin, then normalize so sum_i p_Haar,i = 1.
+   The notebook does not sample Haar states here—it uses the analytic Haar
+   PDF projected onto the same bins as the data.
+
+10. Why binning matters
+    KL is computed between two discrete distributions on the same bins. The
+    reported number depends on B (finer bins -> closer to continuum, but need
+    more samples to fill bins).
+
+================================================================================
+PHASE 4 — KL divergence as the score
+================================================================================
+
+11. Definition used
+    D_KL(p||q) = sum_i p_i log(p_i / q_i) with q = discretized Haar.
+    Lower => empirical p is closer to Haar's q on those bins.
+
+12. Direction of KL
+    It is P_ansatz || P_Haar (not symmetric). D_KL(q||p) would emphasize
+    different mismatches.
+
+13. Numerical stabilization
+    Small epsilon added to every bin so log(0) does not occur. This biases KL
+    slightly but avoids infinities when bins are empty.
+
+14. What "better" means in the notebook
+    Whichever ansatz has smaller D_KL(p_emp || p_Haar) is treated as closer to
+    Haar under this protocol.
+
+================================================================================
+PHASE 5 — Fair comparison of circuits
+================================================================================
+
+15. Match problem size
+    Same n, same depth schedule, and (as in the notebook) same number of
+    trainable parameters per depth when comparing two ansätze—otherwise
+    capacity differences confound "expressibility."
+
+16. Trace the ansatz -> statevector pipeline
+    Parameter vector -> bind to circuit -> Statevector -> overlap. Confirm you
+    know global phase does not affect F.
+
+17. Reproducibility
+    Note how RNG seeds are set (global + per-depth offsets) so runs are
+    repeatable and comparisons are not cherry-picked noise.
+
+================================================================================
+PHASE 6 — Experimental design in the notebook
+================================================================================
+
+18. Depth sweep
+    For each depth: draw many fidelity samples, bin, compute KL vs Haar. Ask:
+    does KL decrease with depth for each ansatz? Which curve is lower?
+
+19. Sample size vs noise
+    Understand why many samples per point (e.g. 100k): bin counts need to be
+    stable, especially in tails.
+
+20. Convergence plot (optional section in notebook)
+    Vary sample size at fixed depth and watch KL stabilize. This validates that
+    the headline number is not dominated by Monte Carlo variance.
+
+================================================================================
+PHASE 7 — Visual sanity checks
+================================================================================
+
+21. Overlay histogram and Haar PDF
+    Plot empirical density (bin prob / width) vs analytic p_Haar(F). Look for
+    systematic shifts (e.g. too much weight at high F => states too "aligned"
+    on average).
+
+22. KL vs depth plot
+    Connect the curve to intuition: deeper circuits often (not always) push
+    p_emp toward p_Haar if the family is expressive enough.
+
+================================================================================
+PHASE 8 — Limitations and extensions (avoid over-interpreting)
+================================================================================
+
+23. Uniform [0,2*pi] is a modeling choice
+    Trained parameters follow a different distribution; this metric is
+    random-parameter expressibility, not "after training."
+
+24. Binning + epsilon
+    The scalar is an approximation; sensitivity analysis: try B in {50, 150,
+    300} and see if rankings swap.
+
+25. Computational cost
+    Statevector simulation is exponential in n; the method scales poorly in
+    qubits—know your n limit.
+
+26. Optional: relate to other expressibility definitions
+    Read how papers define expressibility (e.g. moments of the Haar
+    distribution over state features); note equivalence or non-equivalence to
+    this KL-on-F construction.
+
+================================================================================
+Suggested order of execution (if you reproduce by hand)
+================================================================================
+
+1. Implement Haar PDF and plot it for D=32.
+2. Simulate a small number of fidelity samples from one ansatz (or Haar states
+   if you add that) and build a histogram.
+3. Build discretized Haar on the same bins; compute KL by hand for a toy B=5
+   example.
+4. Scale up bins and sample count; add second ansatz; compare.
+5. Add depth loop and convergence-over-N check.

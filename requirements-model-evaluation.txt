@@ -1,0 +1,14 @@
+# Recommended interpreter: Python 3.12
+# Pinned to the currently validated stack for this notebook.
+ipykernel==7.2.0
+matplotlib==3.10.8
+numpy==2.4.3
+scikit-learn==1.8.0
+torch==2.10.0
+tqdm==4.67.3
+ucimlrepo==0.0.7
+qiskit==2.1.2
+qiskit-aer==0.17.2
+qiskit-machine-learning==0.9.0
+qiskit-algorithms==0.4.0
+iqm-client[qiskit]==34.0.1

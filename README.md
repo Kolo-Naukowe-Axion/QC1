@@ -45,11 +45,13 @@ This project and its hybrid architecture are based on methodologies established 
 
 1.  **Supervised learning with quantum-enhanced feature spaces** – *Havlíček et al. (2019)* [Quantum 3, 141](https://quantum-journal.org/papers/q-2019-12-09-214/)
     * **Contribution**: Provided the core framework for mapping classical data into the quantum Hilbert space via feature maps, forming the basis for our 4-feature encoding.
-2.  **Quantum Machine Learning in Liquid** – *Havlíček et al. (2019)* [arXiv:1905.10876](https://arxiv.org/abs/1905.10876)
-    * **Contribution**: Explores practical implementation in noisy environments, supporting our research in optimizing variational circuits for the superconducting qubits of **ODRA 5**.
-3.  **Circuit-centric quantum classifiers** – *Mitarai et al. (2018)* [arXiv:1803.11173](https://arxiv.org/abs/1803.11173)
+2.  **Expressibility and entangling capability of parameterized quantum circuits** – *Sim, Johnson, Aspuru-Guzik (2019)* [arXiv:1905.10876](https://arxiv.org/abs/1905.10876)
+    * **Contribution**: Framework for comparing parameterized circuit templates (expressibility, entangling capability), supporting ansatz design and analysis for hybrid quantum–classical models on **ODRA 5**.
+3.  **Supervised learning with quantum-enhanced feature spaces** (arXiv preprint) – *Havlíček et al. (2018)* [arXiv:1804.11326](https://arxiv.org/abs/1804.11326)
+    * **Contribution**: Experimental implementation on superconducting hardware; complements the journal version above for practical noise and deployment considerations.
+4.  **Circuit-centric quantum classifiers** – *Mitarai et al. (2018)* [arXiv:1803.11173](https://arxiv.org/abs/1803.11173)
     * **Contribution**: Established the concept of Variational Quantum Classifiers (VQC) and the **Parameter Shift Rule** used in our hybrid backpropagation.
-4.  **The power of quantum neural networks** – *Abbas et al. (2021)* [Nature Communications 12, 1476](https://www.nature.com/articles/s41467-021-21728-w)
+5.  **The power of quantum neural networks** – *Abbas et al. (2021)* [Nature Communications 12, 1476](https://www.nature.com/articles/s41467-021-21728-w)
     * **Contribution**: Key research on the capacity and trainability of quantum neural networks, helping us evaluate the effective dimension and expressivity of our chosen **ansatz** structures.
 
 ---
@@ -137,6 +139,24 @@ Our research focuses on two primary analytical axes:
 2.  **Architecture**: Review `ansatz.ipynb` to see the circuit tested.
 3.  **Comparison**: Check the `evaluation_and_comparison` folder for scripts that contrast results from the simulator and the physical quantum computer.
 4.  **Inference**: You can load pre-trained weights from the `/weights` folder to reproduce our results or run inference on your own QPU/Simulator.
+
+---
+
+## Local Notebook Setup
+
+For `evaluation_and_comparison/model_evaluation.ipynb`, use the project-local environment in `.venv-clean` with Python `3.12`.
+
+```bash
+python3.12 -m venv .venv-clean
+source .venv-clean/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements-model-evaluation.txt
+python -m ipykernel install --user --name qc1-clean --display-name "Python (QC1 clean)"
+```
+
+In DataSpell, select the `.venv-clean/bin/python` interpreter or the `Python (QC1 clean)` kernel for the notebook.
+
+When using this local environment, skip the notebook cell that reinstalls packages with `%pip`.
 
 ---
 

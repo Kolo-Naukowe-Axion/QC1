@@ -1,0 +1,3 @@
+ansatz,statevector_accuracy,statevector_f1,statevector_std_accuracy,statevector_std_f1,iqm_mean_accuracy,iqm_std_accuracy,iqm_mean_f1,iqm_std_f1,eval_shots,n_repeats,fold,weight_path
+odra,0.8545454545454545,0.8245614035087719,0.0,0.0,0.8094545454545455,0.015158786134170637,0.8083546518855295,0.010371891902517322,512,10,1,/Users/jkw/Documents/uni/axion/QC1/tests/divergence/ansatz_odra_2_weights.pth
+simulator,0.8654545454545455,0.8412017167381974,0.0,0.0,0.7272727272727273,0.10652883657076281,0.7722591465178098,0.06321265006945956,512,10,1,/Users/jkw/Documents/uni/axion/QC1/tests/divergence/ansatz_simulator_2_weights.pth

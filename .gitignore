@@ -1,2 +1,5 @@
 .venv/
+.venv-clean/
+.cache/
+.matplotlib-cache/
 **/.DS_Store

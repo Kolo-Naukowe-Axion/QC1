@@ -1,0 +1,5 @@
+depth,kl_odra,kl_simulator,abs_gap,better_ansatz
+2,0.096967,0.068663,0.028304,Simulator
+4,0.000893,0.002184,0.001291,ODRA
+6,0.000256,0.000323,0.000067,ODRA
+8,0.000298,0.000240,0.000058,Simulator

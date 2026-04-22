@@ -1,0 +1,39 @@
+[project]
+name = "qc1"
+version = "0.1.0"
+description = "Notebook environment for QC1 model evaluation"
+requires-python = "==3.12.*"
+dependencies = [
+    # PyTorch 2.9.x imports sympy.printing at optimizer init; SymPy 1.14 drops that
+    # top-level attribute (see pytorch/pytorch#151312). Keep 1.13.x until torch catches up.
+    "sympy>=1.13.0,<1.14",
+    "ipykernel==7.2.0",
+    "matplotlib==3.10.8",
+    "numpy==2.4.3",
+    "pandas>=2.2.0,<3",
+    "scikit-learn==1.8.0",
+    "torch>=2.6.0,<2.10",
+    "tqdm==4.67.3",
+    "ucimlrepo==0.0.7",
+    "qiskit==2.1.2",
+    "qiskit-aer==0.17.2",
+    "qiskit-machine-learning==0.9.0",
+    "qiskit-algorithms==0.4.0",
+    "iqm-client[qiskit]==34.0.1",
+    "openpyxl>=3.1.5",
+]
+
+[tool.uv]
+package = false
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests/ansatz_odra_evaluation/odra_test"]
+pythonpath = ["tests/ansatz_odra_evaluation"]
+markers = [
+    "iqm: needs IQM_TOKEN (and network); optional hardware checks",
+]

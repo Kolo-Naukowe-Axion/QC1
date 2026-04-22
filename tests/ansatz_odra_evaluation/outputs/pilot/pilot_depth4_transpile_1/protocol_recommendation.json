@@ -1,0 +1,12 @@
+{
+  "chosen_repeats": 45,
+  "chosen_shot": 4096,
+  "delta_accuracy": 0.01,
+  "delta_f1": 0.02,
+  "depth": 4,
+  "pilot_run_dir": "tests/ansatz_odra_evaluation/outputs/pilot/pilot_depth4_transpile_1_2.0",
+  "recommended_repeats_accuracy": 41,
+  "recommended_repeats_f1": 45,
+  "target_half_width_accuracy": 0.02,
+  "target_half_width_f1": 0.03
+}
