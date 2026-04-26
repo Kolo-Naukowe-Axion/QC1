@@ -37,20 +37,6 @@ In this project, we treat the dataset as a foundation for:
 * **Ansatz Structure Comparison**: We test defferent circuits (VQC) architectures to determine which gives best results and compare them to classical model.
 * **Hardware Constraint Analysis**: The banknote data provides a balanced environment to analyze how gate errors and decoherence on the **ODRA 5** processor affect classification accuracy compared to ideal simulated conditions.
 
----
-
-## Scientific Foundations & Research Papers
-
-This project and its hybrid architecture are based on methodologies established in the following research papers:
-
-1.  **Supervised learning with quantum-enhanced feature spaces** – *Havlíček et al. (2019)* [Quantum 3, 141](https://quantum-journal.org/papers/q-2019-12-09-214/)
-    * **Contribution**: Provided the core framework for mapping classical data into the quantum Hilbert space via feature maps, forming the basis for our 4-feature encoding.
-2.  **Quantum Machine Learning in Liquid** – *Havlíček et al. (2019)* [arXiv:1905.10876](https://arxiv.org/abs/1905.10876)
-    * **Contribution**: Explores practical implementation in noisy environments, supporting our research in optimizing variational circuits for the superconducting qubits of **ODRA 5**.
-3.  **Circuit-centric quantum classifiers** – *Mitarai et al. (2018)* [arXiv:1803.11173](https://arxiv.org/abs/1803.11173)
-    * **Contribution**: Established the concept of Variational Quantum Classifiers (VQC) and the **Parameter Shift Rule** used in our hybrid backpropagation.
-4.  **The power of quantum neural networks** – *Abbas et al. (2021)* [Nature Communications 12, 1476](https://www.nature.com/articles/s41467-021-21728-w)
-    * **Contribution**: Key research on the capacity and trainability of quantum neural networks, helping us evaluate the effective dimension and expressivity of our chosen **ansatz** structures.
 
 ---
 
@@ -116,13 +102,14 @@ y = banknote_authentication.data.targets
 
 ```
 
----
 
 ## Benchmarks & Performance
-Our research focuses on two primary analytical axes:
-1.  **Simulation vs Reality**: Evaluating the impact of real-world noise and decoherence on the **IQM Spark** processor compared to noise-free simulations.
-2.  **Circuit Depth Impact**: Investigating the trade-off between model expressivity (more layers) and the accumulation of physical gate errors on the actual QPU.
-
+The framework evaluates five complementary dimensions:
+1. compiled resource costs
+2. estimated fidelity proxies
+3. theoretical expressibility via Kullback-Leibler divergence to the Haar distribution
+4. optimisation robustness via five-fold cross-validation under a phenomenological expectation-value noise model
+5. end-to-end classification performance directly on the physical QPU using Accuracy and F1 Metrics.
 ---
 
 ## Technical Stack
