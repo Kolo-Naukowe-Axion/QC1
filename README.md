@@ -25,7 +25,6 @@
     * `model_simulator`: VQC running on a noise-free simulator.
     * `model_odra`: Model specifically tuned for the **IQM Spark (ODRA 5)** hardware.
 * **`weights/`** – Pre-trained weights for all models.
-* **`ansatz.ipynb`** – Detailed description of IQM SPARK adapted circuit architectur.
 * **`eda.ipynb`** – Exploratory Data Analysis of the UCI dataset.
 
 ---
